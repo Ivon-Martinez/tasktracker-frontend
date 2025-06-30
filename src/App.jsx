@@ -12,7 +12,7 @@ function App() {
   const [showOptions, setShowOptions] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:5000/tasks')
+    fetch('http://tasktracker-backend:5000/tasks')
       .then(res => {
         if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
         return res.json();
@@ -36,7 +36,7 @@ function App() {
       return;
     }
 
-    fetch('http://localhost:5000/tasks', {
+    fetch('http://tasktracker-backend:5000/tasks', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ function App() {
   };
 
   const deleteTask = (id) => {
-    fetch(`http://localhost:5000/tasks/${id}`, {
+    fetch('http://tasktracker-backend:5000/tasks/${id}`, {
       method: 'DELETE',
     })
       .then(res => res.json())
@@ -82,7 +82,7 @@ function App() {
       return;
     }
 
-    fetch(`http://localhost:5000/tasks/${id}`, {
+    fetch('http://tasktracker-backend:5000/tasks/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
